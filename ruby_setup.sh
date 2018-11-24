@@ -7,6 +7,7 @@ if [[ -z $(which rbenv) ]]
 then
     echo "Installing rbenv"
     sudo apt-get install rbenv
+    echo 'eval "$(rbenv init -)"' >> $PROFILE_SCRIPT
     echo "Installing ruby dev package"
     sudo apt-get install ruby-dev
     echo "Setting up rbenv install"
@@ -14,6 +15,7 @@ then
     echo "Installing ruby $RUBY_VERSION"
     rbenv install $RUBY_VERSION
     rbenv global $RUBY_VERSION
+    rbenv rehash
 fi
 
 # Install bundler

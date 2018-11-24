@@ -1,5 +1,5 @@
 #!/bin/bash
-PROFILE_SCRIPT=$HOME/.bashrc
+export PROFILE_SCRIPT=$HOME/.bashrc
 
 # Update sources
 sudo apt-get update
@@ -58,5 +58,5 @@ then
     cp .vimrc ~/.vimrc
 fi
 
-./ruby_setup.sh
+. ruby_setup.sh
 
