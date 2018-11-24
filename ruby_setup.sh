@@ -7,6 +7,8 @@ if [[ -z $(which rbenv) ]]
 then
     echo "Installing rbenv"
     sudo apt-get install rbenv
+    echo "Installing ruby dev package"
+    sudo apt-get install ruby-dev
     echo "Setting up rbenv install"
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build  
     echo "Installing ruby $RUBY_VERSION"
