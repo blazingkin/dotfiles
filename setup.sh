@@ -46,5 +46,14 @@ fi
 # Set up bash to ignore commands that start with a space
 if [[ -z $HISTCONTROL ]]
 then
+    echo "Setting up history control to ignore commands that start with a space"
     echo "export HISTCONTROL='ignorespace'" >> $PROFILE_SCRIPT
+fi
+
+if [ ! -f ~/.vimrc ]
+then
+    echo "Making sure that vim-full is installed"
+    sudo apt-get install vim
+    echo "Setting up the vimrc file"
+    cp .vimrc ~/.vimrc
 fi
