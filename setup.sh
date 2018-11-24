@@ -57,3 +57,6 @@ then
     echo "Setting up the vimrc file"
     cp .vimrc ~/.vimrc
 fi
+
+./ruby_setup.sh
+
