@@ -41,6 +41,7 @@ sub   4096R/F273FCD8 2017-02-22"
         stable"
         sudo apt-get update
         sudo apt-get install docker-ce -y
+        sudo usermod -aG docker $USER
 fi
 
 # Set up bash to ignore commands that start with a space
@@ -56,6 +57,16 @@ then
     sudo apt-get install vim
     echo "Setting up the vimrc file"
     cp .vimrc ~/.vimrc
+fi
+
+if [ ! -f ~/.ssh/id_rsa.pub ]
+then
+    ssh-keygen
+fi
+
+if [ -z $(which blz) ]
+then
+    curl https://blazingk.in/install_blz_unix.sh | bash
 fi
 
 . ruby_setup.sh
