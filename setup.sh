@@ -64,9 +64,32 @@ then
     ssh-keygen
 fi
 
-if [ -z $(which blz) ]
+if [[ -z $(which blz) ]]
 then
     curl https://blazingk.in/install_blz_unix.sh | bash
+fi
+
+if [[ -z $EDITOR ]]
+then
+    if [ -n $(which snap) ]
+    then
+        snap install --classic code
+        echo "Setting up editor to be vscode"
+        echo "export EDITOR='code --wait'" >> $PROFILE_SCRIPT
+    fi
+fi
+
+if [[ -z $BROWSER ]]
+then
+    if [ -n $(which firefox-trunk) ]
+    then
+    echo "Setting up browser to be firefox-trunk"
+    echo "export BROWSER=firefox-trunk" >> $PROFILE_SCRIPT
+    elif [ -n $(which firefox) ]
+    then
+    echo "Setting up browser to be firefox"
+    echo "export BROWSER=firefox" >> $PROFILE_SCRIPT
+    fi
 fi
 
 . ruby_setup.sh
