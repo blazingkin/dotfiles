@@ -1,5 +1,6 @@
 #!/bin/bash
 export PROFILE_SCRIPT=$HOME/.bashrc
+export PROFILE=$HOME/.profile
 
 # Update sources
 sudo apt-get update
@@ -85,6 +86,7 @@ then
     then
     echo "Setting up browser to be firefox-trunk"
     echo "export BROWSER=firefox-trunk" >> $PROFILE_SCRIPT
+    echo "export MOZ_WEBRENDER=1" >> $PROFILE
     elif [ -n $(which firefox) ]
     then
     echo "Setting up browser to be firefox"
