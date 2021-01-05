@@ -2,6 +2,9 @@
 export PROFILE_SCRIPT=$HOME/.bashrc
 export PROFILE=$HOME/.profile
 
+# Ensure that have loaded the most recent profile script
+. $PROFILE_SCRIPT
+
 # Update sources
 sudo apt-get update
 
@@ -92,6 +95,13 @@ then
     echo "Setting up browser to be firefox"
     echo "export BROWSER=firefox" >> $PROFILE_SCRIPT
     fi
+fi
+
+
+if [[ -z $(grep shutdown $PROFILE_SCRIPT) ]]
+then
+    echo "Setting up shutdown to not print annoying messages"
+    echo 'alias shutdown="shutdown --no-wall"' >> $PROFILE_SCRIPT
 fi
 
 . ruby_setup.sh
